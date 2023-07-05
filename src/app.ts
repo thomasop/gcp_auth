@@ -25,7 +25,6 @@ let myStore = new SequelizeStore({
 })
 app.use(
   session({
-    key: 'test',
     secret: process.env.SECRET_COOKIE as string,
     resave: false,
     saveUninitialized: false,

@@ -2,10 +2,12 @@
   "name": "gcp-test-auth",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently -k -n \"Typescript,Node\" -p \"[{name}]\" -c \"blue,green\" \"tsc --watch\" \"nodemon dist/server.js\""
+    "build": "tsc",
+    "dev": "NODE_ENV=development ts-node ./src/index.ts",
+    "start": "NODE_ENV=production node ./dist/server.js",
+    "test": "jest --clearCache && jest"
   },
   "author": "",
   "license": "ISC",
