@@ -16,7 +16,7 @@ export const server = createServer(app);
 const SequelizeStore = connectSequelizeStore(session.Store)
 
 app.use(bodyParser.json());
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: "https://test-auth-alpha.vercel.app" }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 

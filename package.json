@@ -5,9 +5,10 @@
   "main": "./dist/server.js",
   "scripts": {
     "build": "tsc",
-    "dev": "NODE_ENV=development ts-node ./src/index.ts",
     "start": "NODE_ENV=production node ./dist/server.js",
-    "test": "jest --clearCache && jest"
+    "test": "jest --clearCache && jest",
+    "dev": "concurrently -k -n \"Typescript,Node\" -p \"[{name}]\" -c \"blue,green\" \"tsc --watch\" \"nodemon dist/src/server.js\""
+
   },
   "author": "",
   "license": "ISC",
