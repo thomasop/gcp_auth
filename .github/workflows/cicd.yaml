@@ -40,5 +40,5 @@ jobs:
           registry: europe-west1-docker.pkg.dev/auth-391914/auth
           username: _json_key
           password: ${{ secrets.GCP_REGISTRY_KEY }}
-      - run: docker build -t europe-west1/devops-workshop-api:${{ github.sha }} .
-      - run: docker push europe-west1/devops-workshop-api:${{ github.sha }}
+      - run: docker build -t auth-391914/devops-workshop-api:${{ github.sha }} .
+      - run: docker push auth-391914/devops-workshop-api:${{ github.sha }}
