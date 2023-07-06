@@ -7,9 +7,6 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 dotenv.config();
 
-const generateAccessToken = (user: string) => {
-  return jwt.sign({ mail: user }, process.env.SECRET_TOKEN as string);
-};
 
 const Login = async (req: any, res: Response) => {
   let email = req.body.email;
