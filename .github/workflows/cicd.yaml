@@ -42,3 +42,29 @@ jobs:
           password: ${{ secrets.GCP_REGISTRY_KEY }}
       - run: docker build -t europe-west1-docker.pkg.dev/auth-391914/auth/auth-workshop-api:${{ github.sha }} .
       - run: docker push europe-west1-docker.pkg.dev/auth-391914/auth/auth-workshop-api:${{ github.sha }}
+  deploy-to-cloud-run:
+    needs: build-publish
+    runs-on: ubuntu-latest
+    environment: gcp
+    name: deploy the previously built image to Cloud Run
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.push.head.ref }}
+      # Setup gcloud CLI
+      - id: "auth"
+        uses: "google-github-actions/auth@v1"
+        with:
+          credentials_json: "${{ secrets.GCP_REGISTRY_KEY }}"
+      # Deploy to Cloud Run
+      - id: "deploy"
+        uses: "google-github-actions/deploy-cloudrun@v1"
+        with:
+          service: "auth-workshop-api"
+          image: "europe-west1-docker.pkg.dev/auth-391914/auth/auth-workshop-api:${{ github.sha }}"
+          env_vars: |
+            NODE_ENV=production
+          flags: "--port=8080"
+          region: "europe-west1"
+      - name: "deploy output"
+        run: 'curl "${{ steps.deploy.outputs.url }}"'
