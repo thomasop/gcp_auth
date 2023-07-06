@@ -31,7 +31,7 @@ app.use(
     store: myStore,
     cookie: {
       secure: true,
-      domain: "https://test-auth-alpha.vercel.app/"
+      domain: "https://test-auth-alpha.vercel.app"
     }
   })
 );
