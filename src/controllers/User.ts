@@ -29,9 +29,6 @@ const Login = async (req: any, res: Response) => {
           id: user.dataValues.id,
           mail: user.dataValues.mail,
         };
-        /* res.cookie("token", user, {
-          httpOnly: true, secure: true, sameSite: true
-        }) */
         req.session.user = user;
         req.session.cookie.maxAge = 3600000
         return res.status(200).json({

@@ -28,7 +28,11 @@ app.use(
     secret: process.env.SECRET_COOKIE as string,
     resave: false,
     saveUninitialized: false,
-    store: myStore
+    store: myStore,
+    cookie: {
+      secure: true,
+      domain: "test-auth-alpha.vercel.app"
+    }
   })
 );
 
