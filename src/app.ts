@@ -16,7 +16,7 @@ export const server = createServer(app);
 const SequelizeStore = connectSequelizeStore(session.Store)
 
 app.use(bodyParser.json());
-app.use(cors({ credentials: true, origin: "https://testjlkkhjkhjjhhjh-auth-alpha.vercel.app" }));
+app.use(cors({ credentials: true, origin: "https://test-auth-alpha.vercel.app" }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -30,7 +30,7 @@ app.use(
     saveUninitialized: false,
     store: myStore,
     cookie: {
-      domain: "*"
+      domain: "https://auth-workshop-api-dphxzibc2a-ew.a.run.app"
     }
   })
 );
