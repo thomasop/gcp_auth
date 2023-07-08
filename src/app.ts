@@ -30,10 +30,7 @@ app.use(
     saveUninitialized: false,
     store: myStore,
     cookie: {
-      httpOnly: true,
-      secure: true,
-      sameSite: "none",
-      domain: "https://test-auth-alpha.vercel.app"
+      domain: "test-auth-alpha.vercel.app"
     }
   })
 );
