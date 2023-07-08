@@ -30,7 +30,10 @@ app.use(
     saveUninitialized: false,
     store: myStore,
     cookie: {
-      domain: "https://auth-workshop-api-dphxzibc2a-ew.a.run.app"
+      sameSite: "none",
+      httpOnly: true,
+      secure: true,
+      domain: "test-auth-alpha.vercel.app"
     }
   })
 );
