@@ -30,9 +30,6 @@ app.use(
     saveUninitialized: false,
     store: myStore,
     cookie: {
-      sameSite: "none",
-      httpOnly: true,
-      secure: true,
       domain: "https://auth-workshop-api-dphxzibc2a-ew.a.run.app"
     }
   })
