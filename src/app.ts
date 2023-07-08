@@ -33,7 +33,6 @@ app.use(
       sameSite: "none",
       httpOnly: true,
       secure: true,
-      domain: "https://test-auth-alpha.vercel.app"
     }
   })
 );
