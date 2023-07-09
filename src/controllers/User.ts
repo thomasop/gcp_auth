@@ -50,12 +50,12 @@ const Login = async (req: any, res: Response) => {
 };
 
 const Admin = async (req: any, res: Response) => {
-  console.log(req.session.user);
-  if (req.session.user === undefined || req.session.user === null) {
+  /* console.log(req.session.user);
+  if (req.session.user === undefined || req.session.user === null) { */
     res.status(200).json("user no log");
-  } else {
+  /* } else {
     res.status(200).json("user log");
-  }
+  } */
 };
 
 const Logout = async (req: any, res: Response, next: NextFunction) => {
