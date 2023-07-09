@@ -6,32 +6,15 @@ import { createServer } from "http";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import userRouter from "./routes/User.js";
-import session from "express-session";
-import connectSequelizeStore from 'connect-session-sequelize'
-import connect from "./database/connect.js";
 dotenv.config();
 
 let app = express();
 export const server = createServer(app);
-//const SequelizeStore = connectSequelizeStore(session.Store)
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors({ credentials: true, origin: "https://test-auth-alpha.vercel.app" }));
 app.use(cookieParser('test'));
-/* let myStore = new SequelizeStore({
-  db: connect
-})
-app.use(
-  session({
-    secret: process.env.SECRET_COOKIE as string,
-    resave: false,
-    saveUninitialized: false,
-    store: myStore,
-  })
-);
-
-myStore.sync(); */
 
 app.use("/user", userRouter);
 

@@ -32,9 +32,10 @@ const Login = async (req: any, res: Response) => {
           id: user.dataValues.id,
           mail: user.dataValues.mail,
         };
-        res.cookie("jwt", "test");
-        /* req.session.user = user;
-        req.session.cookie.maxAge = 3600000 */
+        res.cookie("jwt", "test", {
+          domain: "https://test-auth-alpha.vercel.app",
+          secure: true,
+        });
         return res.status(200).json({
           status: 200,
           user: userLogin,
@@ -46,12 +47,7 @@ const Login = async (req: any, res: Response) => {
 };
 
 const Admin = async (req: any, res: Response) => {
-  /* console.log(req.session.user);
-  if (req.session.user === undefined || req.session.user === null) { */
     res.status(200).json({ status: 200, message: "user no log" });
-  /* } else {
-    res.status(200).json("user log");
-  } */
 };
 
 const Logout = async (req: any, res: Response, next: NextFunction) => {
