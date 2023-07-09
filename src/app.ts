@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: "https://test-auth-alpha.vercel.app" }));
+app.use(cors({ origin: "*" }));
 /* let myStore = new SequelizeStore({
   db: connect
 })
