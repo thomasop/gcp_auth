@@ -14,13 +14,14 @@ dotenv.config();
 let app = express();
 export const server = createServer(app);
 //const SequelizeStore = connectSequelizeStore(session.Store)
-app.use(cookieParser());
+
 app.use(bodyParser.json());
-app.use(cors({ credentials: true, origin: "*" }));
+
 //app.use(cors({ credentials: true, origin: "https://test-auth-alpha.vercel.app" }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(cookieParser());
+app.use(cors({ credentials: true, origin: "https://test-auth-alpha.vercel.app" }));
 /* let myStore = new SequelizeStore({
   db: connect
 })
