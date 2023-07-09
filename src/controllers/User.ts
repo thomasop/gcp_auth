@@ -32,11 +32,7 @@ const Login = async (req: any, res: Response) => {
           id: user.dataValues.id,
           mail: user.dataValues.mail,
         };
-        res.cookie("jwt", "test", {
-          httpOnly: true,
-          secure: true,
-          sameSite: "none",
-        });
+        res.cookie("jwt", "test");
         /* req.session.user = user;
         req.session.cookie.maxAge = 3600000 */
         return res.status(200).json({
@@ -52,7 +48,7 @@ const Login = async (req: any, res: Response) => {
 const Admin = async (req: any, res: Response) => {
   /* console.log(req.session.user);
   if (req.session.user === undefined || req.session.user === null) { */
-    res.status(200).json("user no log");
+    res.status(200).json({ status: 200, message: "user no log" });
   /* } else {
     res.status(200).json("user log");
   } */
