@@ -6,8 +6,8 @@ import { body } from "express-validator";
 const userRouter = express.Router();
 
 userRouter.post("/login", Login);
-userRouter.get("/admin", auth, Admin);
-userRouter.get("/logout", auth, Logout);
+userRouter.get("/admin", Admin);
+userRouter.get("/logout", Logout);
 
 export default userRouter;
 
