@@ -15,13 +15,10 @@ let app = express();
 export const server = createServer(app);
 //const SequelizeStore = connectSequelizeStore(session.Store)
 
-app.use(bodyParser.json());
-
-//app.use(cors({ credentials: true, origin: "https://test-auth-alpha.vercel.app" }));
-
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(cors({ origin: "*" }));
+app.use(bodyParser.json());
+app.use(cors({ credentials: true, origin: "https://test-auth-alpha.vercel.app" }));
+app.use(cookieParser('test'));
 /* let myStore = new SequelizeStore({
   db: connect
 })
