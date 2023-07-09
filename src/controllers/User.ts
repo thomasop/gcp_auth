@@ -11,7 +11,10 @@ dotenv.config();
 const Login = async (req: any, res: Response) => {
   let email = req.body.email;
   let password = req.body.password;
+  console.log(req.body.email);
+  console.log(req.body.password);
   const user = await User.findOne({ where: { mail: email } });
+  console.log(user)
   if (user === null) {
     res.status(400).json({ errors: "Mauvaise combinaison email/password" });
   } else {

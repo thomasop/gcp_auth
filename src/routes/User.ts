@@ -11,4 +11,3 @@ userRouter.get("/logout", auth, Logout);
 
 export default userRouter;
 
-    //"dev": "NODE_ENV=development ts-node ./src/index.ts",
